@@ -9157,3 +9157,15 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
+/* line 9, ../../scss/layout.scss */
+.amber {
+  background-color: orange;
+  border-color: orangered;
+  color: darkorange;
+}
+/* line 14, ../../scss/layout.scss */
+.amber li:hover {
+  background-color: orange;
+  border-color: orangered;
+  color: darkorange;
+}

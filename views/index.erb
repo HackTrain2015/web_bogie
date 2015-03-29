@@ -1,1 +1,35 @@
-Test
+<div class="row">
+  <div class="large-12 columns">
+    <div class="panel radius">
+      <div class="row">
+        <div class="large-6">
+          <p class="pull-right">Next train to:<span class="pull-left"><%= @train_code %></span></p>
+          <p class="pull-right">Platform:<span class="pull-left"><%= @station_platform %></span></p>
+          <p class="pull-right">Arrives at:<span class="pull-left"><%= @train_arrival_time %></span></p>
+        </div>
+      </div>
+      <% if @delayed_in_minutes %>
+          <a href="#" class="medium alert round button">Delayed by: <%=@delayed_in_minutes %> minutes</a>
+      <% else %>
+          <a href="#" class="medium success round button">ON TIME!</a>
+      <% end %>
+    </div>
+    <% @rad = ['alert', 'success', 'amber']%>
+    <div class="panel radius">
+      <div class="row">
+        <div class="large-4 medium-3 medium-push-1 small-3 small-push-1 columns">
+          <ul>
+            <% 7.times do |train_carriage| %>
+              <li class="carriage button round <%= @rad[train_carriage.modulo 3] %>"></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="large-4 medium-3 medium-pull-1 small-3 small-pull-1 columns">
+          <% 7.times do |train_carriage| %>
+              <li class="carriage button round <%= @rad[(train_carriage + 1).modulo 3] %>"></li>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

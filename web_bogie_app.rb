@@ -1,9 +1,9 @@
-require 'sinatra/base'
+require 'sinatra'
 require 'sinatra/assetpack'
 require 'faraday'
 
-class WebBogieApp < Sinatra::Base
-  register Sinatra::AssetPack
+# class WebBogieApp < Sinatra::Base
+#   register Sinatra::AssetPack
 
   assets do
     serve '/js', from: 'js'
@@ -25,42 +25,19 @@ class WebBogieApp < Sinatra::Base
     js_compression :jsmin
   end
 
-  get '/test' do
-    erb :index
+  get '/' do
+    erb :index, layout: :layout
   end
-end
 
-# Sinatra::Application.routes["GET"].each do |route|
-#   puts route[0]
-# end
   #get my next train for platform X which is knowqn
-#
-#   get '/nextrain/:stncode/:platform' do
-#     nextrain(params[:stncode],params[:platform])
-#   end
-#
-#   def nextrain(stationcode='EUS',platform='3')
-#     @stationcode = stationcode
-#     @platform = platform
-#     "#{@stationcode}:  #{@platform}"
-#   end
-# end
-#
-# module RailApi
-#   class ApiError < StandardError
-#   end
-#
-#   class Get
-#     include Faraday
-#     def request
-#       @request ||= Faraday.get(url)
-#     end
-#
-#   end
-# end
-#
-# class Api
-#   def response
-#     request.env[:status] == 200 ? request.env[:body] : ApiError.new(request.env[:body])
-#   end
+
+  get '/nextrain/:stncode/:platform' do
+    nextrain(params[:stncode],params[:platform])
+  end
+
+  def nextrain(stationcode='EUS',platform='3')
+    @stationcode = stationcode
+    @platform = platform
+    "#{@stationcode}:  #{@platform}"
+  end
 # end
