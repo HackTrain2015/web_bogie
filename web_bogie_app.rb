@@ -7,6 +7,7 @@ require 'faraday'
 
   assets do
     serve '/js', from: 'js'
+    serve '/images', from: 'images'    # Default
     serve '/bower_components', from: 'bower_components'
 
     js :modernizr, [
