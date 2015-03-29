@@ -1,0 +1,231 @@
+[
+  {
+    "_id": "551744287a6f57ff9196f919",
+    "index": 0,
+    "name": "Suzette",
+    "estimated_arrival_time": "Monday, January 20, 2014 2:58 AM",
+    "actual_arrival_time": "Monday, January 20, 2014 3:50 AM",
+    "train_class": "schnellzug",
+    "status": "Delayed",
+    "carriages": [
+      {
+        "id": 0,
+        "free_number_of_seats": 36
+      },
+      {
+        "id": 1,
+        "free_number_of_seats": 33
+      },
+      {
+        "id": 2,
+        "free_number_of_seats": 48
+      },
+      {
+        "id": 3,
+        "free_number_of_seats": 43
+      },
+      {
+        "id": 4,
+        "free_number_of_seats": 47
+      },
+      {
+        "id": 5,
+        "free_number_of_seats": 33
+      },
+      {
+        "id": 6,
+        "free_number_of_seats": 46
+      },
+      {
+        "id": 7,
+        "free_number_of_seats": 28
+      },
+      {
+        "id": 8,
+        "free_number_of_seats": 42
+      }
+    ]
+  },
+  {
+    "_id": "5517442867a59e67aaadf9f9",
+    "index": 1,
+    "name": "Lynn",
+    "estimated_arrival_time": "Friday, January 31, 2014 9:04 AM",
+    "actual_arrival_time": "Friday, January 31, 2014 9:04 AM",
+    "train_class": "125",
+    "status": "On time",
+    "carriages": [
+      {
+        "id": 0,
+        "free_number_of_seats": 45
+      },
+      {
+        "id": 1,
+        "free_number_of_seats": 31
+      }
+    ]
+  }
+  {
+    "_id": "55174428ec8de66beb81aa8d",
+    "index": 2,
+    "name": "Therese",
+    "estimated_arrival_time": "Monday, August 4, 2014 5:35 PM",
+    "actual_arrival_time": "Monday, January 20, 2014 3:50 AM",
+    "status"
+    "train_class": "pendolino",
+    "carriages": [
+      {
+        "id": 0,
+        "free_number_of_seats": 48
+      },
+      {
+        "id": 1,
+        "free_number_of_seats": 39
+      },
+      {
+        "id": 2,
+        "free_number_of_seats": 49
+      },
+      {
+        "id": 3,
+        "free_number_of_seats": 27
+      },
+      {
+        "id": 4,
+        "free_number_of_seats": 30
+      },
+      {
+        "id": 5,
+        "free_number_of_seats": 34
+      },
+      {
+        "id": 6,
+        "free_number_of_seats": 34
+      },
+      {
+        "id": 7,
+        "free_number_of_seats": 25
+      },
+      {
+        "id": 8,
+        "free_number_of_seats": 42
+      },
+      {
+        "id": 9,
+        "free_number_of_seats": 28
+      },
+      {
+        "id": 10,
+        "free_number_of_seats": 27
+      }
+    ]
+  },
+  {
+    "_id": "551744289193e2c6b3ae5fcb",
+    "index": 3,
+    "name": "Jamie",
+    "estimated_arrival_time": "Wednesday, January 14, 2015 3:09 AM",
+    "train_class": "pendolino",
+    "actual_arrival_time": "Wednesday, January 14, 2015 3:09 AM",
+    "status": "On time",
+    "carriages": [
+      {
+        "id": 0,
+        "free_number_of_seats": 36
+      },
+      {
+        "id": 1,
+        "free_number_of_seats": 27
+      },
+      {
+        "id": 2,
+        "free_number_of_seats": 33
+      },
+      {
+        "id": 3,
+        "free_number_of_seats": 25
+      }
+    ]
+  },
+  {
+    "_id": "55174428dd1b42a99a926674",
+    "index": 4,
+    "name": "Christian",
+    "estimated_arrival_time": "Monday, May 12, 2014 4:51 AM",
+    "train_class": "hs1",
+    "actual_arrival_time": "Monday, May 12, 2014 4:56 AM",
+    "status": "Delayed",
+    "carriages": [
+      {
+        "id": 0,
+        "free_number_of_seats": 44
+      },
+      {
+        "id": 1,
+        "free_number_of_seats": 25
+      },
+      {
+        "id": 2,
+        "free_number_of_seats": 45
+      },
+      {
+        "id": 3,
+        "free_number_of_seats": 39
+      },
+      {
+        "id": 4,
+        "free_number_of_seats": 47
+      },
+      {
+        "id": 5,
+        "free_number_of_seats": 35
+      },
+      {
+        "id": 6,
+        "free_number_of_seats": 33
+      },
+      {
+        "id": 7,
+        "free_number_of_seats": 41
+      },
+      {
+        "id": 8,
+        "free_number_of_seats": 43
+      },
+      {
+        "id": 9,
+        "free_number_of_seats": 36
+      },
+      {
+        "id": 10,
+        "free_number_of_seats": 36
+      }
+    ]
+  },
+  {
+    "_id": "551744284b0d050af64de42f",
+    "index": 5,
+    "name": "Hollie",
+    "estimated_arrival_time": "Tuesday, April 15, 2014 10:09 PM",
+    "train_class": "schnellzug",
+    "status": "On time",
+    "carriages": [
+      {
+        "id": 0,
+        "free_number_of_seats": 34
+      },
+      {
+        "id": 1,
+        "free_number_of_seats": 42
+      },
+      {
+        "id": 2,
+        "free_number_of_seats": 47
+      },
+      {
+        "id": 3,
+        "free_number_of_seats": 48
+      }
+    ]
+  }
+]

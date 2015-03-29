@@ -1,12 +1,14 @@
 require 'sinatra'
 require 'sinatra/assetpack'
 require 'faraday'
+require 'json'
 
 # class WebBogieApp < Sinatra::Base
 #   register Sinatra::AssetPack
 
   assets do
     serve '/js', from: 'js'
+    serve '/files', from: 'files'
     serve '/images', from: 'images'    # Default
     serve '/bower_components', from: 'bower_components'
 
@@ -27,6 +29,16 @@ require 'faraday'
   end
 
   get '/' do
+    json_file = File.read('files/testdata.json')
+    # results = JSON.parse(json_file)
+    # results.first do |r|
+    #   @next_train = r[""]
+    #   @station_platform = r[""]
+    #   @train_arrival_time = r[""]
+    #   @delayed_in_minutes =  if r["status"] != 'On time'
+    #   @train_carriages = r[""]
+    # end
+    # Faraday.get("#{request_uri}/")
     erb :index, layout: :layout
   end
 
