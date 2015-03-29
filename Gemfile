@@ -1,4 +1,24 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "sass", "~> 3.4.0"
-gem "compass", "~> 1.0"
+gem 'stomp'
+gem 'activemodel'
+gem 'sinatra'
+gem 'sinatra-activerecord'
+gem 'shotgun'
+gem 'thin'
+gem 'sqlite3'
+gem 'rake'
+gem 'rack', '>= 1.1', '< 1.6'
+gem 'sinatra-assetpack'
+gem 'racksh'
+gem 'sprockets'
+gem 'faraday'
+gem 'coffee-script-source' ,'>= 0'
+gem 'execjs' ,'>= 0'
+gem 'chunky_png', '1.3.3'
+gem 'foundation'
+gem 'compass', '1.0.1'
+gem 'compass-core', '1.0.1'
+gem 'multi_json', '1.10.1'
+gem 'sass', '3.4.9'
+gem 'ffi', '1.9.6'

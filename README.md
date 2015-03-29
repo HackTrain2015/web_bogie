@@ -1,3 +1,5 @@
+This is the readme file for HackTrain 2015
+
 # Foundation Compass Template
 
 The easiest way to get started with Foundation + Compass.
@@ -26,4 +28,8 @@ If you'd like to upgrade to a newer version of Foundation down the road just run
 
 ```bash
 bower update
+```
+
+```run application
+shotgun --server=thin --port=6000 web_bogie/config.ru
 ```
