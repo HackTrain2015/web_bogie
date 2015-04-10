@@ -1,9 +1,9 @@
-require 'sinatra/base'
+require 'sinatra'
 require 'sinatra/assetpack'
 require 'faraday'
 
-class WebBogieApp < Sinatra::Base
-  register Sinatra::AssetPack
+# class WebBogieApp < Sinatra::Base
+#   register Sinatra::AssetPack
 
   assets do
     serve '/js', from: 'js'
@@ -28,7 +28,10 @@ class WebBogieApp < Sinatra::Base
   get '/test' do
     erb :index
   end
-end
+
+
+  
+# end
 
 # Sinatra::Application.routes["GET"].each do |route|
 #   puts route[0]
