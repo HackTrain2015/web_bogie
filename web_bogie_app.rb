@@ -1,12 +1,15 @@
 require 'sinatra'
 require 'sinatra/assetpack'
 require 'faraday'
+require 'json'
 
 # class WebBogieApp < Sinatra::Base
 #   register Sinatra::AssetPack
 
   assets do
     serve '/js', from: 'js'
+    serve '/files', from: 'files'
+    serve '/images', from: 'images'    # Default
     serve '/bower_components', from: 'bower_components'
 
     js :modernizr, [
@@ -25,45 +28,29 @@ require 'faraday'
     js_compression :jsmin
   end
 
-  get '/test' do
-    erb :index
+  get '/' do
+    json_file = File.read('files/testdata.json')
+    # results = JSON.parse(json_file)
+    # results.first do |r|
+    #   @next_train = r[""]
+    #   @station_platform = r[""]
+    #   @train_arrival_time = r[""]
+    #   @delayed_in_minutes =  if r["status"] != 'On time'
+    #   @train_carriages = r[""]
+    # end
+    # Faraday.get("#{request_uri}/")
+    erb :index, layout: :layout
   end
 
-
-  
-# end
-
-# Sinatra::Application.routes["GET"].each do |route|
-#   puts route[0]
-# end
   #get my next train for platform X which is knowqn
-#
-#   get '/nextrain/:stncode/:platform' do
-#     nextrain(params[:stncode],params[:platform])
-#   end
-#
-#   def nextrain(stationcode='EUS',platform='3')
-#     @stationcode = stationcode
-#     @platform = platform
-#     "#{@stationcode}:  #{@platform}"
-#   end
-# end
-#
-# module RailApi
-#   class ApiError < StandardError
-#   end
-#
-#   class Get
-#     include Faraday
-#     def request
-#       @request ||= Faraday.get(url)
-#     end
-#
-#   end
-# end
-#
-# class Api
-#   def response
-#     request.env[:status] == 200 ? request.env[:body] : ApiError.new(request.env[:body])
-#   end
+
+  get '/nextrain/:stncode/:platform' do
+    nextrain(params[:stncode],params[:platform])
+  end
+
+  def nextrain(stationcode='EUS',platform='3')
+    @stationcode = stationcode
+    @platform = platform
+    "#{@stationcode}:  #{@platform}"
+  end
 # end
