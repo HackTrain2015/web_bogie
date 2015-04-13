@@ -1,0 +1,23 @@
+.carriage_list {
+	
+	list-style-type: none;
+
+}
+
+.red {
+	background-size: 25px,25px;
+	background-color: red;
+
+}
+
+.amber {
+	background-size: 25px,25px;
+	background-color: yellow;
+
+}
+
+.green {
+	background-size: 25px,25px;
+	background-color: green;
+
+}

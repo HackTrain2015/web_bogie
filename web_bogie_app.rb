@@ -1,14 +1,56 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'faraday'
 require 'json'
+require 'pry'
+require 'httparty'
+require File.expand_path(File.dirname(__FILE__) + '/lib/get_train_data')
 
-# class WebBogieApp < Sinatra::Base
-#   register Sinatra::AssetPack
 
+
+class WebBogieApp < Sinatra::Base
+  register Sinatra::AssetPack
+  include GetTrainData
+  # include HTTParty
+
+  helpers do
+    def generate_carriage_view(carriages)
+      base_string ="<ul class=\"carriage_list\">"
+      if carriages
+          carriages.each do |carriage|
+            base_string = base_string +"<li class=\"#{generate_classes(carriage)}\"></li>\n"
+          end
+      end
+      base_string = base_string+"</ul>"
+
+    end
+
+    def generate_classes(carriage)
+      classes = ["carriage"]
+      if carriage['free_seats'].to_f / carriage['total_seats'].to_f >= 0.75
+        classes.push('green')
+      elsif ((carriage['free_seats'].to_f)/(carriage['total_seats'].to_f)).between?(0.25,0.75) 
+        classes.push('amber')
+      elsif (carriage['free_seats'].to_f)/(carriage['total_seats'].to_f) <= 0.25
+        classes.push('red')
+      else
+        classes.push('white')
+      end
+      if carriage['has_bikes'] == 1
+        classes.push('bike')
+      end
+      if carriage['has_luggage'] == 1
+        classes.push('luggage')
+      end
+      # binding.pry
+      classes.join(" ")
+
+    end
+  end
   assets do
     serve '/js', from: 'js'
     serve '/files', from: 'files'
+    serve '/css', from: 'css'
     serve '/images', from: 'images'    # Default
     serve '/bower_components', from: 'bower_components'
 
@@ -24,23 +66,68 @@ require 'json'
     js :application, [
                      '/js/app.js'
                    ]
+    css :application, [
+          '/css/application.css'
+        ]
 
     js_compression :jsmin
   end
 
+  # get '/' do
+  #   "Hello World"
+  # end
   get '/' do
     json_file = File.read('files/testdata.json')
-    # results = JSON.parse(json_file)
-    # results.first do |r|
-    #   @next_train = r[""]
-    #   @station_platform = r[""]
-    #   @train_arrival_time = r[""]
-    #   @delayed_in_minutes =  if r["status"] != 'On time'
-    #   @train_carriages = r[""]
-    # end
+    results = JSON.parse(json_file)
+    @traindata = {}
+    binding.pry
+    r = results.first
+      binding.pry
+      # r = r.to_h
+      @traindata['next_train'] = r["name"]
+      @traindata['station_platform'] = 2
+      @traindata['train_arrival_time'] = r["estimated_arrival_time"]
+      @traindata['delayed_in_minutes'] =  if r["status"] != 'On time'
+      @traindata['train_carriages'] = r["carriages"]
+      @traindata['num_carriages'] = r["carriages"].size
+      binding.pry
     # Faraday.get("#{request_uri}/")
     erb :index, layout: :layout
   end
+end
+
+get '/departures' do
+  "Departures"
+  erb :departures_all, layout: :layout
+end
+
+get '/arrivals' do
+  Arrivals
+end
+
+get '/departures/:stncode' do
+  if params[:stncode]
+    deps = departures(params[:stncode])
+    @traindata = deps
+    # params[:stncode]
+    erb :departures, layout: :layout
+
+  end
+end
+
+get '/arrivals/:stncode' do
+  if params[:stncode]
+    arrivs = arrivals(params[:stncode])
+    # arrivs.to_s
+    # params[:stncode]
+    # erb :arrivals, layout: :layout
+    binding.pry
+    carriages = generate_random_carriage_data(arrivs)
+    @traindata = carriages
+    erb :arrivals, layout: :layout
+
+  end
+end
 
   #get my next train for platform X which is knowqn
 
@@ -48,9 +135,6 @@ require 'json'
     nextrain(params[:stncode],params[:platform])
   end
 
-  def nextrain(stationcode='EUS',platform='3')
-    @stationcode = stationcode
-    @platform = platform
-    "#{@stationcode}:  #{@platform}"
-  end
-# end
+
+end
+

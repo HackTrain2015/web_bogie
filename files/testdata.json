@@ -1,7 +1,6 @@
 [
   {
-    "_id": "551744287a6f57ff9196f919",
-    "index": 0,
+    "index": "0",
     "name": "Suzette",
     "estimated_arrival_time": "Monday, January 20, 2014 2:58 AM",
     "actual_arrival_time": "Monday, January 20, 2014 3:50 AM",
@@ -64,14 +63,14 @@
         "free_number_of_seats": 31
       }
     ]
-  }
+  },
   {
     "_id": "55174428ec8de66beb81aa8d",
     "index": 2,
     "name": "Therese",
     "estimated_arrival_time": "Monday, August 4, 2014 5:35 PM",
     "actual_arrival_time": "Monday, January 20, 2014 3:50 AM",
-    "status"
+    "status": "On Time",
     "train_class": "pendolino",
     "carriages": [
       {

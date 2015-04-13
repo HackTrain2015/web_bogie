@@ -1,0 +1,23 @@
+
+
+<br>
+<div class="container">
+	<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Arriving From</th>
+			<th>Time</th>
+			<th>Carriages</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% binding.pry %>
+		<% @traindata.each do |train| %>
+		<tr>
+			<td><%= train['origin'].first['locationName'] %></td>
+			<td><%= train['eta'] %></td>
+			<td><%= generate_carriage_view train['carriages'] %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table></div>
