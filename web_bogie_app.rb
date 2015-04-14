@@ -30,12 +30,16 @@ class WebBogieApp < Sinatra::Base
 
     js :libs, [
               '/bower_components/jquery/dist/jquery.js',
-              '/bower_components/foundation/js/foundation.js'
+              '/bower_components/foundation/js/foundation.js',
+              '/bower_components/jquery-ui/jquery-ui.js'
             ]
 
     js :application, [
                      '/js/app.js'
                    ]
+    js :departures, [
+                '/js/departures.js'
+    ]
     css :application, [
           '/css/application.css'
         ]
@@ -81,6 +85,7 @@ get '/departures/:stncode' do
     carriages = generate_random_carriage_data(deps)
     @traindata = carriages
     # params[:stncode]
+    # binding.pry
     erb :departures, layout: :layout
 
   end

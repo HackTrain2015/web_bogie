@@ -45,7 +45,7 @@ module GetTrainData
 		if stationdata
 			stationdata['trainServices'].each do |service|
 				service['carriages'] = Array.new()
-				rand(3..12).times do |carriage|
+				rand(3..11).times do |carriage|
 					total_seats = rand(25...100)
 					free_seats = total_seats-rand(1...total_seats)
 					# binding.pry

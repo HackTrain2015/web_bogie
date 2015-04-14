@@ -14,15 +14,6 @@
   text-align: center;
 }
 
-.amber {
-  background-color: orange;
-  border-color: orangered;
-  color: darkorange;
-  transition: orange 300ms ease-out;
-  .button:hover, .button:focus, .button:hover, .button:focus {
-    background-color: darkorange;
-  }
-}
 
 h1.logo{
   font-family: helvetica,arial,sans-serif;
@@ -51,3 +42,40 @@ li.first, li.last {
 //   -ms-transform: scale(0.3);
 //   transform: scale(0.3);
 // }
+
+.trainboard {
+  margin: 5px;
+
+
+}
+
+.singletrain {
+
+  padding: 15px;
+  background-color: #125292;
+  border: 8px solid;
+  margin-bottom: 12px;
+}
+
+.traintime {
+  font-size: 2em;
+  color: white;
+
+}
+
+.traindestination {
+  font-size: 2em;
+  color: white;
+
+}
+
+.trainplatform {
+  font-size: 2em;
+  color: white;
+  float:right;    
+}
+.train-display {
+  padding-top:12px;
+  margin: auto;
+
+}

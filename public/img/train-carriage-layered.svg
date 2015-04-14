@@ -7,10 +7,38 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   width="200.34375"
-   height="136.0625"
-   id="svg3101">
+   width="80.142868"
+   height="54.42857"
+   id="svg3101"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="train-carriage-layered.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1839"
+     inkscape:window-height="983"
+     id="namedview3079"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="6.1442352"
+     inkscape:cx="13.047668"
+     inkscape:cy="27.209836"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs3103" />
   <metadata
@@ -21,27 +49,27 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-228.40625,-501.46875)"
+     transform="translate(-288.5,-542.29077)"
      id="layer1">
     <rect
-       width="195.35716"
-       height="131.07143"
-       x="230.89285"
-       y="503.96933"
+       width="78.142868"
+       height="52.42857"
+       x="289.5"
+       y="543.29077"
        id="rect3755-1"
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <rect
-       width="150.22557"
-       height="57.282829"
-       ry="4.4992785"
-       x="255.28528"
-       y="514.70026"
+       width="60.090229"
+       height="22.913132"
+       ry="1.7997115"
+       x="299.25696"
+       y="547.58313"
        id="indicator-colour"
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.48000002;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
   </g>
 </svg>

@@ -1,16 +1,17 @@
 <br>
 
-<div class="container">
-	<% binding.pry %>
+<div class="container trainboard">
 	<% @traindata.each do |train| %>
-		<div class="row">
-			<div class="row">
-				<div class="small-6 medium-6 large-6 columns"><%= train['destination'].first['locationName'] %></div>
-				<div class="small-6 medium-6 large-6 columns"><%= train['std'] %></div>
+		<div class="row singletrain">
+			<div class="row singletraininfo">
+				<div class="small-2 medium-2 large-2 columns traintime"><%= train['std'] %></div>
+				<div class="small-8 medium-8 large-8 columns traindestination"><%= train['destination'].first['locationName'] %></div>
+				<div class="small-2 medium-2 large-2 columns trainplatform"><%= train['platform'] %></div>
 			</div>
-			<div class="row">
+			<div class="row train-display">
 				<%= generate_svg_train_view train['carriages'] %>	
 			</div>
 		</div>
 	<% end %>
 </div>
+
