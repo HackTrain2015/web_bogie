@@ -43,12 +43,3 @@ h1.logo {
 li.first, li.last {
   border-right: 2px solid black;
 }
-
-/* line 47, ../../scss/layout.scss */
-.carriage {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-}

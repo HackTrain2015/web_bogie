@@ -8,16 +8,21 @@
 			<th>Arriving From</th>
 			<th>Time</th>
 			<th>Carriages</th>
+			<th>Other</th>
 		</tr>
 	</thead>
 	<tbody>
-		<% binding.pry %>
+		<% %>
 		<% @traindata.each do |train| %>
 		<tr>
 			<td><%= train['origin'].first['locationName'] %></td>
 			<td><%= train['eta'] %></td>
 			<td><%= generate_carriage_view train['carriages'] %></td>
+			<td><%= generate_svg_train_view train['carriages'] %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table></div>
+
+<img src="/img/train-left-layered.svg" class="img-responsive" alt="Image">
+<object type="image/svg+xml" data="/img/train-left-layered.svg" id='train-end'>Your browser does not support SVG</object>

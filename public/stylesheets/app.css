@@ -1,3 +1,4 @@
+@import url(application.css);
 /* line 348, ../../bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-version {
   font-family: "/5.5.1/";
@@ -9201,13 +9202,4 @@ h1.logo {
 /* line 43, ../../scss/layout.scss */
 li.first, li.last {
   border-right: 2px solid black;
-}
-
-/* line 47, ../../scss/layout.scss */
-.carriage {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
 }

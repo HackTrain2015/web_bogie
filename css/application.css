@@ -5,23 +5,23 @@
 }
 
 .red {
-	width: 50px;
-	height: 50px;
-	background-color: red;
+	/*width: 50px;*/
+	/*height: 50px;*/
+	/*background-color: red;*/
 
 }
 
 .amber {
-	width: 50px;
-	height: 50px;
-	background-color: yellow;
+	/*width: 50px;*/
+	/*height: 50px;*/
+	/*background-color: yellow;*/
 
 }
 
 .green {
-	width: 50px;
-	height: 50px;
-	background-color: green;
+	/*width: 50px;*/
+	/*height: 50px;*/
+	/*background-color: green;*/
 
 }
 
@@ -29,4 +29,32 @@
 
 	float:left;
 	border: 2px solid;
+}
+
+
+.train-red {
+
+	fill:red;
+
+}
+
+.train-amber {
+
+	fill:yellow;
+}
+
+.train-green {
+
+	fill:green;
+}
+
+#indicator-colour {
+
+	fill:green;
+}
+
+.svgcarriage {
+
+	list-style-type: none;
+	float: left;
 }

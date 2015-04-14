@@ -5,6 +5,7 @@ require 'json'
 require 'pry'
 require 'httparty'
 require File.expand_path(File.dirname(__FILE__) + '/lib/get_train_data')
+require File.expand_path(File.dirname(__FILE__) + '/lib/train_view_helpers')
 
 
 
@@ -14,38 +15,7 @@ class WebBogieApp < Sinatra::Base
   # include HTTParty
 
   helpers do
-    def generate_carriage_view(carriages)
-      base_string ="<ul class=\"carriage_list\">"
-      if carriages
-          carriages.each do |carriage|
-            base_string = base_string +"<li class=\"#{generate_classes(carriage)}\"></li>\n"
-          end
-      end
-      base_string = base_string+"</ul>"
-
-    end
-
-    def generate_classes(carriage)
-      classes = ["carriage"]
-      if carriage['free_seats'].to_f / carriage['total_seats'].to_f >= 0.75
-        classes.push('green')
-      elsif ((carriage['free_seats'].to_f)/(carriage['total_seats'].to_f)).between?(0.25,0.75) 
-        classes.push('amber')
-      elsif (carriage['free_seats'].to_f)/(carriage['total_seats'].to_f) <= 0.25
-        classes.push('red')
-      else
-        classes.push('white')
-      end
-      if carriage['has_bikes'] == 1
-        classes.push('bike')
-      end
-      if carriage['has_luggage'] == 1
-        classes.push('luggage')
-      end
-      # binding.pry
-      classes.join(" ")
-
-    end
+    include TrainViewHelpers
   end
   assets do
     serve '/js', from: 'js'
@@ -108,7 +78,8 @@ end
 get '/departures/:stncode' do
   if params[:stncode]
     deps = departures(params[:stncode])
-    @traindata = deps
+    carriages = generate_random_carriage_data(deps)
+    @traindata = carriages
     # params[:stncode]
     erb :departures, layout: :layout
 
@@ -121,7 +92,6 @@ get '/arrivals/:stncode' do
     # arrivs.to_s
     # params[:stncode]
     # erb :arrivals, layout: :layout
-    binding.pry
     carriages = generate_random_carriage_data(arrivs)
     @traindata = carriages
     erb :arrivals, layout: :layout
