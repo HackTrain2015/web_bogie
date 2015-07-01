@@ -4,13 +4,18 @@ require 'faraday'
 require 'json'
 require 'pry'
 require 'httparty'
+require 'sinatra/activerecord'
+require './models'
 require File.expand_path(File.dirname(__FILE__) + '/lib/get_train_data')
 require File.expand_path(File.dirname(__FILE__) + '/lib/train_view_helpers')
 
 
 
+
 class WebBogieApp < Sinatra::Base
   register Sinatra::AssetPack
+  register Sinatra::ActiveRecordExtension
+
   include GetTrainData
   # include HTTParty
 
@@ -40,6 +45,9 @@ class WebBogieApp < Sinatra::Base
     js :departures, [
                 '/js/departures.js'
     ]
+    js :arrivals, [
+                '/js/arrivals.js'
+    ]
     css :application, [
           '/css/application.css'
         ]
@@ -54,9 +62,7 @@ class WebBogieApp < Sinatra::Base
     json_file = File.read('files/testdata.json')
     results = JSON.parse(json_file)
     @traindata = {}
-    binding.pry
     r = results.first
-      binding.pry
       # r = r.to_h
       @traindata['next_train'] = r["name"]
       @traindata['station_platform'] = 2
@@ -64,43 +70,65 @@ class WebBogieApp < Sinatra::Base
       @traindata['delayed_in_minutes'] =  if r["status"] != 'On time'
       @traindata['train_carriages'] = r["carriages"]
       @traindata['num_carriages'] = r["carriages"].size
-      binding.pry
     # Faraday.get("#{request_uri}/")
     erb :index, layout: :layout
   end
 end
 
+
+get "/station_search" do
+  station = params['query']
+  @results = Station.similar(station)
+  @results.to_json
+end
+
 get '/departures' do
-  "Departures"
-  erb :departures_all, layout: :layout
-end
-
-get '/arrivals' do
-  Arrivals
-end
-
-get '/departures/:stncode' do
-  if params[:stncode]
+  if (params[:stncode] && station_exists?(params[:stncode]))
+    @station = getStationData(params[:stncode])
     deps = departures(params[:stncode])
     carriages = generate_random_carriage_data(deps)
     @traindata = carriages
-    # params[:stncode]
-    # binding.pry
     erb :departures, layout: :layout
+  else
+    erb :departures_all, layout: :layout
+  end
 
+end
+
+get '/arrivals' do
+  if (params[:stncode] && station_exists?(params[:stncode]))
+    @station = getStationData(params[:stncode]).first
+    arrivs = arrivals(params[:stncode])
+    carriages = generate_random_carriage_data(arrivs)
+    @traindata = carriages
+    erb :arrivals, layout: :layout  
+  else
+    erb :arrivals_all, layout: :layout
+  end
+
+end
+
+get '/departures/:stncode' do
+  if (params[:stncode] && station_exists?(params[:stncode]))
+    @station = getStationData(params[:stncode]).first
+    deps = departures(params[:stncode])
+    carriages = generate_random_carriage_data(deps)
+    @traindata = carriages
+    erb :departures, layout: :layout
+  else
+    erb :departures_all, layout: :layout
   end
 end
 
 get '/arrivals/:stncode' do
-  if params[:stncode]
+  if (params[:stncode] && station_exists?(params[:stncode]))
+    @station = getStationData(params[:stncode]).first
     arrivs = arrivals(params[:stncode])
-    # arrivs.to_s
-    # params[:stncode]
-    # erb :arrivals, layout: :layout
     carriages = generate_random_carriage_data(arrivs)
     @traindata = carriages
-    erb :arrivals, layout: :layout
-
+    erb :arrivals, layout: :layout  
+  else
+    erb :arrivals_all, layout: :layout
   end
 end
 

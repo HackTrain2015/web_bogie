@@ -7,7 +7,6 @@ module TrainViewHelpers
 	      end
 	  end
 	  base_string = base_string+"</ul>"
-
 	end
 
 	def generate_classes(carriage)
@@ -29,7 +28,6 @@ module TrainViewHelpers
 	  end
 	  # binding.pry
 	  classes.join(" ")
-
 	end
 
 	def generate_svg_train_view(carriages)
@@ -60,5 +58,17 @@ module TrainViewHelpers
 	def generate_svg_carriage(carriage)
 		svgclass = generate_classes(carriage)+" train-carriage"
 	  "<object type=\"image/svg+xml\" data=\"/img/train-carriage-layered.svg\" class=\"#{svgclass}\" >Your browser does not support SVG</object>"
+	end
+
+	def generate_bike_data(carriage)
+		if carriage['has_bikes'] == 0 
+			"<img src=\"img/bike.png\" class=\"img-responsive bike\" alt=\"Image\">"
+		end
+	end
+
+	def generatae_luggage_data(carriage)
+		if carriage['has_luggage'] == 0
+			"<img src=\"img/luggage.png\" class=\"img-responsive bike\" alt=\"Image\">"
+		end			
 	end
 end

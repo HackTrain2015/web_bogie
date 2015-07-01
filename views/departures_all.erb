@@ -1,12 +1,14 @@
-
-<div class="row">
-	<ul class="pricing-table">
-	  <li class="title">Departing Station</li>
-	  <li class="price"></li>
-	  <li class="description">Enter Station Code or Station Name</li>
-        <input type="text" id="searchbox" placeholder="WAT or Waterloo for London Waterloo" />
-      
-	  <li class="cta-button"><a class="button" href="#">Submit</a></li>
+<div class="container">
+	<div class="row">
+		<ul class="pricing-table">
+		  <li class="title">Departing Station</li>
+		  <li class="price"></li>
+		  <li class="description">Enter Station Code or Station Name</li>
+	        <input type="text" id="searchbox" placeholder="WAT or Waterloo for London Waterloo" />
+	      
+		  <li class="cta-button"><a class="button" id='departurebutton' href="javascript:getInputValue()">Submit</a></li>
+	</div>
+	
 </div>
 
 <%= js :departures %>

@@ -5,13 +5,27 @@ module GetTrainData
 	RAIL_API_ENDPOINT = 'https://huxley.apphb.com'
 	RAIL_API_KEY = "93af89ab-ab40-44f8-9b14-25c622751b2f"
 		
-	
+	private def loadStations
+		stationlist  = JSON.parse(File.read(File.join('public','stationcodes.json')))
+	end
+
 	def next_train_from_station
 		
 	end
 
 	def next_train_to_station
 		
+	end
+
+	def station_exists?(railstation)
+		stations = loadStations()
+		stations.any? {|station| station["value"] == railstation.upcase}
+	end
+
+	def getStationData(code)
+		if station_exists?(code)
+			loadStations.select {|stn| stn["value"] == code.upcase}
+		end
 	end
 
 	def departures(station)
@@ -23,8 +37,7 @@ module GetTrainData
 			"Could not get HTTP Request"
 			
 		end
-			
-				
+						
 	end
 
 	def arrivals(station)

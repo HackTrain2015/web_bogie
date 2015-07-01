@@ -16,7 +16,6 @@ module GetTrainData
 		RAIL_API_KEY = "93af89ab-ab40-44f8-9b14-25c622751b2f"
 		begin
 			prepared_request = "#{RAIL_API_ENDPOINT}/departures/#{station}/accessToken=#{RAIL_API_KEY}"
-			binding.pry
 			departures_from = HTTParty.get(prepared_request)
 		rescue => e
 			"Could not get HTTP Request"
